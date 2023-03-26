@@ -6,21 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-cities = ["New York", "Chicago", "Seattle", "Washington D.C.", "Denver", "Houston"]
-adjectives = ["Gently Used", "Well-Loved", "Heirloom", "Antique", "WANTED", "Slightly damaged"]
-descriptions = ["Free to a good home", "(batteries not included)", "As is", "Like new", "(assembly required)", "No returns!!!!"]
+User.create(username: "johndoe", city: "New York")
+User.create(username: "janedoe", city: "Chicago")
 
-5.times do
-  user = User.create(
-    username: Faker::Internet.username,
-    city: cities.sample
-  )
-
-  rand(2..4).times do
-    user.items.create(
-      name: "#{adjectives.sample} #{Faker::Appliance.equipment}",
-      description: descriptions.sample,
-      price: rand(1..500)
-    )
-  end
-end
+item = Item.create(name: "Non-stick pan", description: "Sticks a bit", price: 10, user_id: 1)
+item2 = Item.create(name: "Ceramic plant pots", description: "Plants not included", price: 31, user_id: 1)
